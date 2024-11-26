@@ -4,10 +4,22 @@
              x:Class="OkoloIt.Installer.Template.App"
              RequestedThemeVariant="Default">
 
+    <!-- Подключение локатора представлений -->
     <Application.DataTemplates>
         <local:ViewLocator/>
     </Application.DataTemplates>
-    
+
+    <!-- Подключение ресурсов -->
+    <Application.Resources>
+        <ResourceDictionary>
+            <!-- Подключение ресурсов -->
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceInclude Source="avares://OkoloIt.Installer.Template/Assets/Icons/Icons.axaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+
+    <!-- Подключение стилей -->
     <Application.Styles>
         <FluentTheme />
     </Application.Styles>

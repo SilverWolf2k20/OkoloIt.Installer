@@ -4,12 +4,58 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="using:OkoloIt.Installer.Template.ViewModels"
         mc:Ignorable="d"
-        d:DesignWidth="800"
-        d:DesignHeight="450"
+        d:DesignWidth="500"
+        d:DesignHeight="600"
         x:Class="OkoloIt.Installer.Template.Views.MainView"
         x:DataType="vm:MainViewModel"
-        Title="{Binding Title}">
+        Title="Установщик"
+        ExtendClientAreaToDecorationsHint="True"
+        ExtendClientAreaChromeHints="NoChrome"
+        ExtendClientAreaTitleBarHeightHint="-1"
+        Background="Transparent"
+        TransparencyLevelHint="AcrylicBlur"
+        CanResize="False"
+        Width="500"
+        Height="500"
+        Icon="/Assets/Icons/installer-icon.ico">
 
     <DockPanel>
+        <!-- Меню окна -->
+        <Grid DockPanel.Dock="Top" ColumnDefinitions="* auto">
+            <ExperimentalAcrylicBorder IsHitTestVisible="False">
+                <ExperimentalAcrylicBorder.Material>
+                    <ExperimentalAcrylicMaterial BackgroundSource="Digger"
+                                                 TintColor="Black"
+                                                 TintOpacity="1"
+                                                 MaterialOpacity="0.85" />
+                </ExperimentalAcrylicBorder.Material>
+            </ExperimentalAcrylicBorder>
+
+            <Button Background="Transparent"
+                    HorizontalAlignment="Right" VerticalAlignment="Center"
+                    Height="32" Width="40"
+                    Command="{Binding CloseCommand}">
+
+                <PathIcon Height="11" Width="11"
+                          Foreground="White"
+                          Data="{StaticResource close}"/>
+            </Button>
+        </Grid>
+
+        <!-- Заголовок установщика -->
+        <DockPanel DockPanel.Dock="Top">
+            <Image DockPanel.Dock="Left"
+                   Margin="10"
+                   Width="60" Height="60"
+                   Source="/Assets/Icons/installer-icon.ico"/>
+            
+            <TextBlock VerticalAlignment="Center" Margin="10"
+                       FontSize="16" FontWeight="Bold"
+                       Text="{Binding ProgramName}"/>
+        </DockPanel>
+
+        <!-- Контент страниц -->
+        <ContentPresenter Margin="10"
+                          Content="{Binding CurrentPage}"/>
     </DockPanel>
 </Window>
