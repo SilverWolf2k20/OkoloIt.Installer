@@ -14,10 +14,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <AvaloniaXaml Remove="Assets\Icons\Icons.axaml" />
-    </ItemGroup>
-
-    <ItemGroup>
         <PackageReference Include="Avalonia" Version="11.2.1" />
         <PackageReference Include="Avalonia.Desktop" Version="11.2.1" />
         <PackageReference Include="Avalonia.Themes.Fluent" Version="11.2.1" />
@@ -27,12 +23,7 @@
             <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
         </PackageReference>
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <AvaloniaResource Update="Assets\Icons\Icons.axaml">
-        <SubType>Designer</SubType>
-      </AvaloniaResource>
+        <PackageReference Include="Avalonia.Xaml.Behaviors" Version="11.2.0" />
     </ItemGroup>
 
 </Project>

@@ -44,8 +44,7 @@
 
         <!-- Заголовок установщика -->
         <DockPanel DockPanel.Dock="Top">
-            <Image DockPanel.Dock="Left"
-                   Margin="10"
+            <Image DockPanel.Dock="Left" Margin="10"
                    Width="60" Height="60"
                    Source="/Assets/Icons/installer-icon.ico"/>
             
@@ -54,8 +53,14 @@
                        Text="{Binding ProgramName}"/>
         </DockPanel>
 
-        <!-- Контент страниц -->
-        <ContentControl Margin="10"
-                        Content="{Binding NavigationService.CurrentPage}"/>
+        <Panel Margin="10">
+            <!-- Информация об установщике -->
+            <TextBlock VerticalAlignment="Bottom"
+                       FontSize="9"
+                       Text="Установщик версии 2.0.0"/>
+
+            <!-- Контент страниц -->
+            <ContentControl Content="{Binding NavigationService.CurrentPage}"/>
+        </Panel>
     </DockPanel>
 </Window>

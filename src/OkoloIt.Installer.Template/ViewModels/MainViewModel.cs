@@ -45,6 +45,6 @@ internal sealed partial class MainViewModel : ViewModelBase
         yield return new InstallationModePageViewModel(navigationService);
         yield return new DesignationFolderPageViewModel(navigationService);
         yield return new InstallingPageViewModel(navigationService);
-        yield return new InstalationCompletePageViewModel(navigationService);
+        yield return new InstalationCompletePageViewModel();
     }
 }

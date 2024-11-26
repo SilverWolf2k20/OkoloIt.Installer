@@ -3,20 +3,37 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="using:OkoloIt.Installer.Template.ViewModels.Pages"
+             xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Avalonia.Xaml.Interactivity"
+             xmlns:ia="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
              mc:Ignorable="d"
              d:DesignWidth="800"
              d:DesignHeight="450"
              x:Class="OkoloIt.Installer.Template.Views.Pages.InstallingPageView"
              x:DataType="vm:InstallingPageViewModel">
 
+    <i:Interaction.Behaviors>
+        <ia:EventTriggerBehavior EventName="Loaded">
+            <ia:InvokeCommandAction Command="{Binding LoadedCommand}" />
+        </ia:EventTriggerBehavior>
+    </i:Interaction.Behaviors>
+
     <DockPanel>
         <!-- Кнопки перехода -->
         <StackPanel DockPanel.Dock="Bottom"  HorizontalAlignment="Right"
                     Orientation="Horizontal" Spacing="10">
-            <Button Content="Далее" Command="{Binding NextPageCommand}"/>
+            <Button Content="Назад" Command="{Binding BackPageCommand}"/>
+            <Button Content="Отмена" Command="{Binding CancelCommand}"/>
         </StackPanel>
 
         <!-- Содержимое страницы -->
-        <TextBlock Text="3"/>
+        <StackPanel Spacing="10">
+            <TextBlock Margin="0 0 0 10"
+                       FontWeight="Bold"
+                       Text="Установка"/>
+
+            <TextBlock Text="Установка файлов"/>
+            <ProgressBar IsIndeterminate="True"/>
+            <TextBlock FontSize="10" Text="{Binding Message}"/>
+        </StackPanel>
     </DockPanel>
 </UserControl>

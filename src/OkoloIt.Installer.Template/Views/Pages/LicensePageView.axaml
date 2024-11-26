@@ -14,10 +14,21 @@
         <StackPanel DockPanel.Dock="Bottom"  HorizontalAlignment="Right"
                     Orientation="Horizontal" Spacing="10">
             <Button Content="Назад" Command="{Binding BackPageCommand}"/>
-            <Button Content="Далее" Command="{Binding NextPageCommand}"/>
+            <Button IsEnabled="{Binding IsAccepted}" Content="Далее" Command="{Binding NextPageCommand}"/>
         </StackPanel>
 
         <!-- Содержимое страницы -->
-        <TextBlock Text="2"/>
+        <CheckBox DockPanel.Dock="Bottom"
+                  IsChecked="{Binding IsAccepted}"
+                  Content="Я принимаю условия лицензионного соглашения."/>
+
+        <TextBlock DockPanel.Dock="Top" Margin="0 0 0 20"
+                   FontWeight="Bold"
+                   Text="Лицензионное соглашение"/>
+
+        <TextBox VerticalAlignment="Stretch"
+                 Background="Transparent"
+                 TextWrapping="Wrap" AcceptsReturn="True" IsReadOnly="True"
+                 Text="{Binding LicenseText}"/>
     </DockPanel>
 </UserControl>

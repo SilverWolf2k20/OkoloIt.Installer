@@ -18,6 +18,23 @@
         </StackPanel>
 
         <!-- Содержимое страницы -->
-        <TextBlock Text="4"/>
+        <StackPanel>
+            <TextBlock Margin="0 0 0 20"
+                       FontWeight="Bold"
+                       Text="Выберите режим установки, и нажмите Далее для установки или обновления."/>
+
+            <RadioButton GroupName="InstallMode" Content="Новая установка"
+                         Foreground="{StaticResource SystemAccentColor}"
+                         IsChecked="{Binding CanInstall}"/>
+            <TextBlock Margin="30 0 0 0"
+                       Text="Создает новый экземпляр программы."/>
+
+            <RadioButton Margin="0 20 0 0"
+                         GroupName="InstallMode" Content="Обновить существующую версию"
+                         Foreground="{StaticResource SystemAccentColor}"
+                         IsChecked="{Binding CanUpdate}"/>
+            <TextBlock Margin="30 0 0 0"
+                       Text="Выберите экземпляр программы для обновления."/>
+        </StackPanel>
     </DockPanel>
 </UserControl>

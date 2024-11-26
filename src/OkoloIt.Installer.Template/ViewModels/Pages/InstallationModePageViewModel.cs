@@ -1,4 +1,7 @@
-﻿using CommunityToolkit.Mvvm.Input;
+﻿using System;
+
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 
 using OkoloIt.Installer.Template.Services;
 
@@ -8,7 +11,15 @@ internal sealed partial class InstallationModePageViewModel(NavigationService na
 {
     private readonly NavigationService _navigationService = navigationService;
 
-    [RelayCommand]
+    [ObservableProperty]
+    [NotifyCanExecuteChangedFor(nameof(NextPageCommand))]
+    private bool _canInstall;
+
+    [ObservableProperty]
+    [NotifyCanExecuteChangedFor(nameof(NextPageCommand))]
+    private bool _canUpdate;
+
+    [RelayCommand(CanExecute = nameof(CanNext))]
     private void OnNextPage()
     {
         _navigationService.NavigateTo<DesignationFolderPageViewModel>();
@@ -18,5 +29,10 @@ internal sealed partial class InstallationModePageViewModel(NavigationService na
     private void OnBackPage()
     {
         _navigationService.NavigateTo<LicensePageViewModel>();
+    }
+
+    private bool CanNext()
+    {
+        return CanInstall || CanUpdate;
     }
 }

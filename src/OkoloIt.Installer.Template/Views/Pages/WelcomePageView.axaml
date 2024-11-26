@@ -17,6 +17,12 @@
         </StackPanel>
 
         <!-- Содержимое страницы -->
-        <TextBlock Text="1"/>
+        <StackPanel>
+            <TextBlock Margin="0 0 0 20"
+                       FontWeight="Bold"
+                       Text="Добро пожаловать в установщик программы OkoloIt.Installer"/>
+
+            <TextBlock Text="Нажмите Далее чтобы начать установку программы."/>
+        </StackPanel>
     </DockPanel>
 </UserControl>

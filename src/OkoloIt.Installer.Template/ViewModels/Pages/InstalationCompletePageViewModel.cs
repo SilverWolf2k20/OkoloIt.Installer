@@ -1,15 +1,15 @@
 ﻿using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-
-using OkoloIt.Installer.Template.Services;
 
 namespace OkoloIt.Installer.Template.ViewModels.Pages;
 
-internal sealed partial class InstalationCompletePageViewModel(NavigationService navigationService) : ViewModelBase
+internal sealed partial class InstalationCompletePageViewModel : ViewModelBase
 {
-    private readonly NavigationService _navigationService = navigationService;
+    [ObservableProperty]
+    private bool _canRunProgram;
 
     [RelayCommand]
     private void OnClose()
