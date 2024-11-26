@@ -8,5 +8,15 @@
              d:DesignHeight="450"
              x:Class="OkoloIt.Installer.Template.Views.Pages.WelcomePageView"
              x:DataType="vm:WelcomePageViewModel">
-  Welcome to Avalonia!
+
+    <DockPanel>
+        <!-- Кнопки перехода -->
+        <StackPanel DockPanel.Dock="Bottom"  HorizontalAlignment="Right"
+                    Orientation="Horizontal" Spacing="10">
+            <Button Content="Далее" Command="{Binding $parent[UserControl].DataContext.NextPageCommand}"/>
+        </StackPanel>
+
+        <!-- Содержимое страницы -->
+        <TextBlock Text="1"/>
+    </DockPanel>
 </UserControl>

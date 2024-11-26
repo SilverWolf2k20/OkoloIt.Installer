@@ -8,5 +8,16 @@
              d:DesignHeight="450"
              x:Class="OkoloIt.Installer.Template.Views.Pages.LicensePageView"
              x:DataType="vm:LicensePageViewModel">
-  Welcome to Avalonia!
+
+    <DockPanel>
+        <!-- Кнопки перехода -->
+        <StackPanel DockPanel.Dock="Bottom"  HorizontalAlignment="Right"
+                    Orientation="Horizontal" Spacing="10">
+            <Button Content="Назад" Command="{Binding BackPageCommand}"/>
+            <Button Content="Далее" Command="{Binding NextPageCommand}"/>
+        </StackPanel>
+
+        <!-- Содержимое страницы -->
+        <TextBlock Text="2"/>
+    </DockPanel>
 </UserControl>

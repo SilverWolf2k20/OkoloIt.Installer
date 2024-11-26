@@ -55,7 +55,7 @@
         </DockPanel>
 
         <!-- Контент страниц -->
-        <ContentPresenter Margin="10"
-                          Content="{Binding CurrentPage}"/>
+        <ContentControl Margin="10"
+                        Content="{Binding NavigationService.CurrentPage}"/>
     </DockPanel>
 </Window>

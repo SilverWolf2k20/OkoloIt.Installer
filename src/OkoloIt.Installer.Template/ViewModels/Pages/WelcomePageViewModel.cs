@@ -1,5 +1,16 @@
-﻿namespace OkoloIt.Installer.Template.ViewModels.Pages;
+﻿using CommunityToolkit.Mvvm.Input;
 
-public sealed partial class WelcomePageViewModel : ViewModelBase
+using OkoloIt.Installer.Template.Services;
+
+namespace OkoloIt.Installer.Template.ViewModels.Pages;
+
+internal sealed partial class WelcomePageViewModel(NavigationService navigationService) : ViewModelBase
 {
+    private readonly NavigationService _navigationService = navigationService;
+
+    [RelayCommand]
+    private void OnNextPage()
+    {
+        _navigationService.NavigateTo<LicensePageViewModel>();
+    }
 }
