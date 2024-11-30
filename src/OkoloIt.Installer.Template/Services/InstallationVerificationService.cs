@@ -96,8 +96,7 @@ internal sealed class InstallationVerificationService
     /// <returns>Мажорный номер среды исполнения.</returns>
     private int GetRuntimeNumber(string source)
     {
-        // TODO: Упростить регулярное выражение.
-        var groups = Regex.Match(source, @"NETCore\.App.((\d).\d.\d+)").Groups;
+        var groups = Regex.Match(source, @".* (\d+)[.]?.*").Groups;
         _ = int.TryParse(groups[2].Value, out int version);
 
         return version;

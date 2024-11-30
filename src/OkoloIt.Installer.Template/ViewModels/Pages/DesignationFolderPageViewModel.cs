@@ -21,7 +21,7 @@ internal sealed partial class DesignationFolderPageViewModel : ViewModelBase
     [ObservableProperty]
     private bool _canCreateShortcut;
 
-    public DesignationFolderPageViewModel(NavigationService navigationService)
+    internal DesignationFolderPageViewModel(NavigationService navigationService)
     {
         _navigationService = navigationService;
 

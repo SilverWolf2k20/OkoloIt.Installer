@@ -23,7 +23,7 @@ internal sealed partial class MainViewModel : ViewModelBase
     [ObservableProperty]
     private string _programName = "OkoloIt.Installer 2.0.0";
 
-    public MainViewModel()
+    internal MainViewModel()
     {
         _navigationService  = new();
 

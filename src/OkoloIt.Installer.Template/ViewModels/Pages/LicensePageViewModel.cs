@@ -20,7 +20,7 @@ internal sealed partial class LicensePageViewModel: ViewModelBase
     [ObservableProperty]
     private bool _isAccepted;
 
-    public LicensePageViewModel(NavigationService navigationService)
+    internal LicensePageViewModel(NavigationService navigationService)
     {
         _navigationService = navigationService;
 
