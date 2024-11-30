@@ -34,7 +34,7 @@
             <TextBlock Text="Выберите место установки файлов программы для программного обеспечения."
                        TextWrapping="Wrap"/>
 
-            <TextBlock Foreground="{StaticResource SystemAccentColor}" Text="Выбор папки"/>
+            <TextBlock Foreground="{DynamicResource SystemAccentColor}" Text="Выбор папки"/>
 
             <DockPanel>
                 <Button DockPanel.Dock="Right"
