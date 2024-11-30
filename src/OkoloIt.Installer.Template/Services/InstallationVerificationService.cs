@@ -6,9 +6,20 @@ using System.Threading.Tasks;
 
 namespace OkoloIt.Installer.Template.Services;
 
+/// <summary>
+/// Сервис проверки системы перед установкой.
+/// </summary>
 internal sealed class InstallationVerificationService
 {
-    public bool CheckForAbsenceOfRunningProgram(string processName)
+    /// <summary>
+    /// Проверяет отсутствие запущенного процесса.
+    /// </summary>
+    /// <param name="processName">Наименование процесса.</param>
+    /// <returns>
+    /// <see langword="true"/> - если процесс не обнаружен, <see langword="false"/> - в противном
+    /// случае.
+    /// </returns>
+    internal bool CheckForAbsenceOfRunningProgram(string processName)
     {
         try {
             Process[] process = Process.GetProcessesByName("Product tree");
@@ -19,7 +30,14 @@ internal sealed class InstallationVerificationService
         }
     }
 
-    public async Task<bool> CheckServerConnectionAsync()
+    /// <summary>
+    /// Проверяет наличие подключения к серверу для получения установочных данных.
+    /// </summary>
+    /// <returns>
+    /// <see langword="true"/> - если соединение есть, <see langword="false"/> - в противном
+    /// случае.
+    /// </returns>
+    internal async Task<bool> CheckServerConnectionAsync()
     {
         try {
             await Task.CompletedTask;
@@ -31,14 +49,22 @@ internal sealed class InstallationVerificationService
         }
     }
 
-    public async Task<bool> CheckIfRequiredRuntimeVersionIsAvailableAsync()
+    /// <summary>
+    /// Проверяет наличие необходимой версии среды исполнения.
+    /// </summary>
+    /// <returns>
+    /// <see langword="true"/> - имеется необходимая версия среды исполнения,
+    /// <see langword="false"/> - в противном случае.
+    /// </returns>
+    internal async Task<bool> CheckIfRequiredRuntimeVersionIsAvailableAsync()
     {
         try {
             return await Task.Run(() => {
-                ProcessStartInfo startInfo = new("dotnet", "--list-runtimes");
-                startInfo.CreateNoWindow = true;
-                startInfo.UseShellExecute = false;
-                startInfo.RedirectStandardOutput = true;
+                ProcessStartInfo startInfo = new("dotnet", "--list-runtimes") {
+                    CreateNoWindow         = true,
+                    UseShellExecute        = false,
+                    RedirectStandardOutput = true
+                };
 
                 Process process = Process.Start(startInfo)!;
 
@@ -63,8 +89,14 @@ internal sealed class InstallationVerificationService
         }
     }
 
+    /// <summary>
+    /// Возвращает мажорный номер среды исполнения.
+    /// </summary>
+    /// <param name="source">Путь до файла среды исполнения.</param>
+    /// <returns>Мажорный номер среды исполнения.</returns>
     private int GetRuntimeNumber(string source)
     {
+        // TODO: Упростить регулярное выражение.
         var groups = Regex.Match(source, @"NETCore\.App.((\d).\d.\d+)").Groups;
         _ = int.TryParse(groups[2].Value, out int version);
 

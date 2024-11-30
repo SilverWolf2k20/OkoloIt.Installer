@@ -8,16 +8,26 @@ using System.Threading.Tasks;
 
 namespace OkoloIt.Installer.Template.Services;
 
+/// <summary>
+/// Сервис взаимодействия с файловыми диалогами.
+/// </summary>
 internal class FileService
 {
     private IStorageProvider? _storageProvider;
 
-    public void Initialize()
+    /// <summary>
+    /// Инициализирует сервис для работы с провайдером хранилища.
+    /// </summary>
+    internal void Initialize()
     {
         _storageProvider = Application.Current?.GetTopLevel().StorageProvider;
     }
 
-    public async Task<IStorageFolder?> OpenFolderAsync()
+    /// <summary>
+    /// Асинхронно отображает диалог выбора папки для открытия.
+    /// </summary>
+    /// <returns>Объект папки.</returns>
+    internal async Task<IStorageFolder?> OpenFolderAsync()
     {
         if (_storageProvider is null)
             return default;

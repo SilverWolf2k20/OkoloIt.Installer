@@ -7,8 +7,12 @@ using OkoloIt.Installer.Template.ViewModels;
 
 namespace OkoloIt.Installer.Template;
 
+/// <summary>
+/// Механизм сопоставляющий классы моделей представлений с представлениями.
+/// </summary>
 internal sealed class ViewLocator : IDataTemplate
 {
+    /// <inheritdoc/>
     public Control? Build(object? data)
     {
         if (data is null)
@@ -23,6 +27,7 @@ internal sealed class ViewLocator : IDataTemplate
         return new TextBlock { Text = "Not Found: " + name };
     }
 
+    /// <inheritdoc/>
     public bool Match(object? data)
     {
         return data is ViewModelBase;
