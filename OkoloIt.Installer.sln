@@ -5,6 +5,8 @@ VisualStudioVersion = 17.12.35506.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OkoloIt.Installer.Template", "src\OkoloIt.Installer.Template\OkoloIt.Installer.Template.csproj", "{A1594FEA-D5AF-4367-A5B6-7F4F38137428}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OkoloIt.Installer.Cli", "src\OkoloIt.Installer.Cli\OkoloIt.Installer.Cli.csproj", "{83C18991-4F40-4E55-8CE9-F8F94FB553B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{A1594FEA-D5AF-4367-A5B6-7F4F38137428}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1594FEA-D5AF-4367-A5B6-7F4F38137428}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1594FEA-D5AF-4367-A5B6-7F4F38137428}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83C18991-4F40-4E55-8CE9-F8F94FB553B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83C18991-4F40-4E55-8CE9-F8F94FB553B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83C18991-4F40-4E55-8CE9-F8F94FB553B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83C18991-4F40-4E55-8CE9-F8F94FB553B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
